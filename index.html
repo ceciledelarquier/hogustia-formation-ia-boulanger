@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation IA pour Boulangers - Hogust | Aidez vos clients boulangers à tenir dans la durée</title>
+    <meta name="description" content="Formations IA pour boulangers artisans. Gagnez 3 à 5 heures par semaine sur la gestion. En marque blanche pour fournisseurs et organismes de formation.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #4A4A4A;
+            background-color: #FFFDFC;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Toggle Audience */
+        .toggle-audience {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-audience button {
+            flex: 1;
+            padding: 12px 30px;
+            border: none;
+            background: transparent;
+            color: #4A4A4A;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .toggle-audience button.active {
+            background: #3C39C4;
+            color: white;
+        }
+
+        .toggle-audience button:hover:not(.active) {
+            background: #F8F9FF;
+        }
+
+        /* Content Toggle */
+        .content-toggle {
+            display: none;
+        }
+
+        .content-toggle.active {
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #3C39C4;
+        }
+
+        .header-cta {
+            background: #3C39C4;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .header-cta:hover {
+            background: #2d2a9d;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F8F9FF 0%, #FFFDFC 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #4A4A4A;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 40px auto;
+            background: #e0e0e0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-style: italic;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #3C39C4;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .cta-primary:hover {
+            background: #2d2a9d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(60, 57, 196, 0.3);
+        }
+
+        .hero-reassurance {
+            color: #4A4A4A;
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+
+        .hero-stats {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* Reality/Why IA Section */
+        .why-ia-bakery {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .why-ia-bakery h2 {
+            font-size: 2.5rem;
+            color: #000;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .reality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .reality-item {
+            background: #F8F9FF;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .reality-item .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .reality-item h3 {
+            font-size: 1.4rem;
+            color: #3C39C4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .reality-item p {
+            font-size: 1.05rem;
+            color: #4A4A4A;
+            line-height: 1.7;
+        }
+
+        .solution-intro {
+            background: linear-gradient(135deg, #F8F9FF 0%, #FFFDFC 100%);
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .solution-intro h3 {
+            font-size: 1.8rem;
+            color: #3C39C4;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .solution-intro p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #4A4A4A;
+        }
+
+        .solution-intro strong {
+            color: #3C39C4;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.2rem;
+            color: #4A4A4A;
+            line-height: 1.8;
+        }
+
+        /* Use Cases Section */
+        .use-cases-detailed {
+            background: #F8F9FF;
+        }
+
+        .use-case-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .use-case-tabs button {
+            padding: 12px 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #4A4A4A;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .use-case-tabs button:hover {
+            border-color: #3C39C4;
+            color: #3C39C4;
+        }
+
+        .use-case-tabs button.active {
+            background: #3C39C4;
+            color: white;
+            border-color: #3C39C4;
+        }
+
+        .use-case-content {
+            display: none;
+        }
+
+        .use-case-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .use-case-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .use-case-left h3 {
+            font-size: 2rem;
+            color: #3C39C4;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .use-case-left .intro {
+            font-size: 1.15rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .use-case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .use-case-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #3C39C4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .use-case-item.highlight {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+            border-left-color: #FFD700;
+        }
+
+        .use-case-item h4 {
+            font-size: 1.25rem;
+            color: #000;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .use-case-item p {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .use-case-item strong {
+            color: #3C39C4;
+        }
+
+        .demo-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .demo-box.highlight {
+            border-color: #FFD700;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+        }
+
+        .demo-label {
+            display: inline-block;
+            background: #3C39C4;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .demo-box.highlight .demo-label {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .demo-caption {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .demo-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .demo-scenario {
+            background: #F8F9FF;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .demo-scenario ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .demo-scenario li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .disclaimer {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA500;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .disclaimer p {
+            margin-bottom: 10px;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: #3C39C4;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .cta-secondary:hover {
+            background: #2d2a9d;
+            transform: translateY(-2px);
+        }
+
+        /* Training Program */
+        .training-program {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .training-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .training-intro .tagline {
+            font-size: 1.3rem;
+            color: #3C39C4;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .training-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .pillar {
+            background: #F8F9FF;
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid #3C39C4;
+        }
+
+        .pillar h3 {
+            font-size: 1.2rem;
+            color: #3C39C4;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .pillar p {
+            line-height: 1.7;
+            color: #4A4A4A;
+        }
+
+        .training-format {
+            background: linear-gradient(135deg, #3C39C4 0%, #2d2a9d 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .training-format h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .format-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .format-item {
+            font-size: 1.05rem;
+        }
+
+        .training-deliverables {
+            background: #FFF9E6;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .training-deliverables h3 {
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .deliverables-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .deliverable-item {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .pedagogy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pedagogy-item {
+            text-align: center;
+            padding: 30px;
+            background: #F8F9FF;
+            border-radius: 12px;
+        }
+
+        .pedagogy-item .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .pedagogy-item h4 {
+            font-size: 1.2rem;
+            color: #3C39C4;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .training-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Why Hogust */
+        .why-hogust {
+            background: #F8F9FF;
+            padding: 80px 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            color: #3C39C4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .why-card p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .why-card .note {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Proof Section */
+        .proof {
+            background: white;
+        }
+
+        .rating {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .stars {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+        }
+
+        .rating-text {
+            font-size: 1.2rem;
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founder-card {
+            text-align: center;
+        }
+
+        .founder-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-style: italic;
+        }
+
+        .founder-card h3 {
+            font-size: 1.3rem;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .founder-card .role {
+            color: #3C39C4;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .founder-card p {
+            color: #4A4A4A;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Partnerships */
+        .partnerships {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .partnership-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .partnership-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .option-card {
+            background: #F8F9FF;
+            padding: 35px;
+            border-radius: 12px;
+            border-top: 4px solid #3C39C4;
+        }
+
+        .option-card.highlight {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+            border-top-color: #FFD700;
+        }
+
+        .option-card h3 {
+            font-size: 1.3rem;
+            color: #3C39C4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .option-card p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .option-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .option-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .option-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3C39C4;
+            font-weight: bold;
+        }
+
+        .partnership-cta {
+            background: linear-gradient(135deg, #3C39C4 0%, #2d2a9d 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .partnership-cta h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .partnership-cta p {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-reassurance {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #F8F9FF;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-subtitle {
+            font-size: 1.3rem;
+            color: #4A4A4A;
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #F8F9FF;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #3C39C4;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-value {
+            font-size: 1.3rem;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: #3C39C4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #2d2a9d;
+        }
+
+        .contact-reassurance {
+            margin-top: 30px;
+            color: #4A4A4A;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3C39C4;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .use-case-split {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-box {
+                position: relative;
+                top: 0;
+            }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-cta {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+        }
+
+        /* Sticky CTA Mobile */
+        .sticky-cta-mobile {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .sticky-cta-mobile a {
+            display: block;
+            background: #3C39C4;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta-mobile {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">HOGUST</div>
+                <a href="#contact" class="header-cta">Nous contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Toggle -->
+    <section class="hero">
+        <div class="container">
+            <div class="toggle-audience">
+                <button id="btn-boulanger" class="active" onclick="switchAudience('boulanger')">Je suis boulanger</button>
+                <button id="btn-partenaire" onclick="switchAudience('partenaire')">Je suis partenaire</button>
+            </div>
+
+            <!-- VERSION BOULANGER -->
+            <div id="content-boulanger" class="content-toggle active">
+                <h1>Vous êtes excellent au fournil.<br>L'IA s'occupe du reste.</h1>
+                
+                <p class="hero-subtitle">
+                    Fiches allergènes, posts réseaux sociaux, relances clients, affichage labo... 
+                    Gagnez 3 à 5h par semaine sur les tâches chronophages — sans être un expert en technologie.
+                </p>
+                
+                <div class="hero-image">
+                    [Photo : Boulanger en action avec overlay IA discret]
+                </div>
+
+                <a href="#contact" class="cta-primary">Échanger sur la formation</a>
+                <div class="hero-reassurance">
+                    Formation en présentiel • 1 journée • Suivi personnalisé pendant 1 mois
+                </div>
+            </div>
+
+            <!-- VERSION PARTENAIRE -->
+            <div id="content-partenaire" class="content-toggle">
+                <h1>Aidez vos clients boulangers<br>à tenir dans la durée</h1>
+                
+                <p class="hero-subtitle">
+                    Vos clients boulangers excellent au fournil, mais croulent sous l'administratif, 
+                    le marketing et la gestion. Résultat ? Ils perdent du temps, de l'argent... 
+                    et risquent de fermer.
+                    <br><br>
+                    <strong>Avec Hogust, offrez-leur l'IA comme levier de performance pour se 
+                    concentrer sur leur métier : être le meilleur artisan possible.</strong>
+                </p>
+
+                <div class="hero-stats">
+                    📊 87% des boulangers formés utilisent l'IA au quotidien 3 mois après<br>
+                    ⏱️ 3 à 5h/semaine récupérées sur les tâches de gestion<br>
+                    🎓 2 niveaux de formation adaptés (débutant/avancé)
+                </div>
+
+                <a href="#partenariat" class="cta-primary">Discuter d'un partenariat</a>
+                <div class="hero-reassurance">
+                    Formations en marque blanche • Webinaires de sensibilisation • Suivi 1 mois inclus
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="why-ia-bakery">
+        <div class="container">
+            <h2>La réalité d'un boulanger artisan en 2025</h2>
+
+            <div class="reality-grid">
+                <div class="reality-item">
+                    <div class="icon">⏰</div>
+                    <h3>15-20h/semaine hors fournil</h3>
+                    <p>RH, compta, marketing, normes... Le métier de boulanger est devenu 50% gestion, 50% artisanat.</p>
+                </div>
+
+                <div class="reality-item">
+                    <div class="icon">📉</div>
+                    <h3>Marges sous pression</h3>
+                    <p>Matières premières +30%, énergie +40%. Chaque heure perdue en administratif coûte cher.</p>
+                </div>
+
+                <div class="reality-item">
+                    <div class="icon">🎓</div>
+                    <h3>Formation fournil ≠ formation business</h3>
+                    <p>Excellents artisans, mais peu formés au marketing, à la gestion RH ou aux réseaux sociaux.</p>
+                </div>
+            </div>
+
+            <div class="solution-intro">
+                <h3>Et si l'IA devenait leur assistant gestion ?</h3>
+                <p>
+                    L'Intelligence Artificielle n'est plus réservée aux grandes entreprises. 
+                    Aujourd'hui, des outils gratuits et accessibles permettent d'automatiser 
+                    80% des tâches chronophages.
+                    <br><br>
+                    <strong>Notre mission chez Hogust : former les boulangers à ces outils 
+                    pour qu'ils se concentrent sur leur passion — l'artisanat — et assurent 
+                    la pérennité de leur entreprise.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section with Tabs -->
+    <section class="use-cases-detailed">
+        <div class="container">
+            <h2>8 domaines où l'IA fait gagner du temps au quotidien</h2>
+            
+            <p class="section-intro">
+                Des cas d'usage concrets, testés sur le terrain avec des boulangers. 
+                Chaque participant repart avec les prompts prêts à l'emploi.
+            </p>
+
+            <!-- NAVIGATION PAR ONGLETS -->
+            <div class="use-case-tabs">
+                <button class="active" onclick="showCategory('rh')">RH</button>
+                <button onclick="showCategory('finance')">Finance</button>
+                <button onclick="showCategory('marketing')">Marketing</button>
+                <button onclick="showCategory('vente')">Vente</button>
+                <button onclick="showCategory('normes')">Normes</button>
+                <button onclick="showCategory('recettes')">Recettes</button>
+                <button onclick="showCategory('galeres')">Gérer les galères</button>
+            </div>
+
+            <!-- CONTENU RH -->
+            <div class="use-case-content active" id="category-rh">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>📋 Ressources Humaines</h3>
+                        <p class="intro">Recrutement, onboarding, gestion de conflits... L'IA devient votre DRH virtuel.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Rédiger une fiche de poste</h4>
+                                <p><strong>Avant :</strong> 1h à chercher des exemples sur Google, copier-coller, adapter...</p>
+                                <p><strong>Avec l'IA :</strong> 5 minutes. Vous décrivez le poste à l'oral, l'IA génère une fiche complète et attractive.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Gérer un conflit d'équipe</h4>
+                                <p><strong>Avant :</strong> Vous êtes seul face à la situation, vous improvisez...</p>
+                                <p><strong>Avec l'IA :</strong> L'IA vous prépare un script d'entretien, des arguments, et vous aide à formuler vos messages avec diplomatie.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Préparer un entretien annuel</h4>
+                                <p>Génération de grilles d'évaluation personnalisées par poste.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">DÉMONSTRATION</span>
+                            <div class="demo-video">
+                                [Vidéo ou GIF : dictée vocale → fiche de poste générée]
+                            </div>
+                            <p class="demo-caption">Exemple réel : fiche de poste "Vendeur(se) en boulangerie" générée en 5 min</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU FINANCE -->
+            <div class="use-case-content" id="category-finance">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>💰 Finance & Comptabilité</h3>
+                        <p class="intro">Devis, relances, analyses de coûts... Gagnez des heures sur la gestion financière.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Rédiger des mails de relance impayés</h4>
+                                <p><strong>Avant :</strong> Vous procrastinez car c'est délicat, vous perdez de la trésorerie...</p>
+                                <p><strong>Avec l'IA :</strong> L'IA génère des mails de relance fermes mais courtois, adaptés à chaque situation (1ère relance, relance formelle, mise en demeure).</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Comparer des devis fournisseurs</h4>
+                                <p><strong>Avant :</strong> 45 min avec Excel, calculatrice, et risque d'erreur...</p>
+                                <p><strong>Avec l'IA :</strong> Uploadez 3-4 devis PDF, l'IA vous sort un tableau comparatif avec le meilleur rapport qualité/prix en 2 minutes.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Analyser sa rentabilité produit</h4>
+                                <p>L'IA calcule vos coûts de revient et vous aide à ajuster vos prix.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">AVANT / APRÈS</span>
+                            <div class="demo-scenario">
+                                <p><strong>AVANT :</strong></p>
+                                <p>3 devis PDF empilés + calculatrice + 45 min de travail</p>
+                                <p style="text-align: center; margin: 15px 0; font-size: 1.5rem; color: #3C39C4;">↓</p>
+                                <p><strong>APRÈS :</strong></p>
+                                <p>Tableau comparatif clair en 2 minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU MARKETING -->
+            <div class="use-case-content" id="category-marketing">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>📣 Marketing & Communication</h3>
+                        <p class="intro">Réseaux sociaux, visuels, décoration... Boostez votre visibilité sans agence.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Créer des posts réseaux sociaux</h4>
+                                <p><strong>Avant :</strong> Vous ne savez pas quoi poster, vous passez 30 min à chercher des idées...</p>
+                                <p><strong>Avec l'IA :</strong> Vous dictez votre actualité ("nouvelle recette brioche praline"), l'IA génère 5 posts Instagram/Facebook prêts à publier.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Générer des visuels attractifs</h4>
+                                <p><strong>Avant :</strong> Vous payez un graphiste ou vous utilisez Canva sans compétences...</p>
+                                <p><strong>Avec l'IA :</strong> Créez des affiches, photos de produits optimisées, visuels promo en quelques clics.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Améliorer la déco de votre boutique</h4>
+                                <p>L'IA analyse votre espace et propose des améliorations (disposition, couleurs, signalétique).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">EXEMPLE RÉEL</span>
+                            <div style="background: #F8F9FF; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                                <p style="font-weight: 600; margin-bottom: 10px;">Post Instagram généré par IA :</p>
+                                <p style="font-style: italic;">"🥐 Nouvelle création de la semaine : notre brioche praline maison ! Pâte levée lentement, pralines roses du Lyonnais... Un régal pour vos petits-déjeuners ! Disponible dès demain matin 🌅 #BoulangerieArtisanale #BriochePraline #FaitMaison"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU VENTE -->
+            <div class="use-case-content" id="category-vente">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>🛍️ Vente & Relation Client</h3>
+                        <p class="intro">Avis Google, argumentaires produits, fidélisation... Optimisez votre relation client.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Générer des réponses aux avis Google</h4>
+                                <p><strong>Avant :</strong> Vous ne répondez pas (surtout aux avis négatifs) ou vous manquez d'inspiration...</p>
+                                <p><strong>Avec l'IA :</strong> L'IA génère des réponses professionnelles et empathiques en 10 secondes.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Créer des fiches produits pour vos vendeurs</h4>
+                                <p><strong>Cas d'usage :</strong> Vos vendeurs ne connaissent pas tous les ingrédients, allergènes, ou l'histoire de vos produits. L'IA crée des fiches mémo testables à l'oral.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Créer une newsletter client</h4>
+                                <p>Automatisation de newsletters mensuelles avec actualités, promotions, recettes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">TEST INTERACTIF</span>
+                            <div style="text-align: center; padding: 20px;">
+                                <p style="font-size: 2rem; margin-bottom: 15px;">🎤</p>
+                                <p style="margin-bottom: 20px;">Testez dès maintenant avec vos propres avis Google</p>
+                                <a href="https://chatgpt.com" target="_blank" class="cta-secondary">Tester avec l'IA</a>
+                                <p class="demo-note">Collez un avis client (positif ou négatif), l'IA génère une réponse adaptée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU NORMES -->
+            <div class="use-case-content" id="category-normes">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>✅ Normes & Conformité</h3>
+                        <p class="intro">Allergènes, affichages obligatoires, consignes labo... Soyez en règle sans prise de tête.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item highlight">
+                                <h4>🎁 Créer des fiches allergènes (cadeau formation)</h4>
+                                <p><strong>Avant :</strong> 1h30 par fiche, risque d'erreur sur la réglementation...</p>
+                                <p><strong>Avec l'IA :</strong> 2 minutes. Vous listez les ingrédients, l'IA génère une fiche conforme DGCCRF.</p>
+                                <a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" class="cta-secondary">Tester gratuitement</a>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Créer des affiches de consignes labo</h4>
+                                <p><strong>Exemples :</strong> Rangement du labo, nettoyage de la machine à tarte aux pommes, procédure de fermeture...</p>
+                                <p><strong>Avec l'IA :</strong> Génération d'affiches claires et visuelles en quelques clics.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Vérifier la conformité réglementaire</h4>
+                                <p>L'IA vous alerte sur les obligations légales (affichage, traçabilité, etc.).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box highlight">
+                            <span class="demo-label">🎁 CADEAU FORMATION</span>
+                            <p><strong>Tous les participants repartent avec un outil sur-mesure</strong> pour générer des fiches allergènes conformes en 2 minutes.</p>
+                            <div style="margin: 20px 0; padding: 15px; background: white; border-radius: 8px;">
+                                [Screenshot : Interface outil allergènes]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU GÉRER LES GALÈRES -->
+            <div class="use-case-content" id="category-galeres">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>🔧 Gérer les galères du quotidien</h3>
+                        <p class="intro">Machine en panne, notice perdue, nouvelle caisse incompréhensible... L'IA dépanne 24/7.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Trouver les notices et se faire accompagner</h4>
+                                <p><strong>Exemple :</strong> Votre machine à café déconne. Vous prenez une photo du modèle, l'IA trouve la notice et vous guide pas à pas pour résoudre le problème.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Faire un benchmark de matériel</h4>
+                                <p><strong>Cas d'usage :</strong> Vous devez acheter un nouveau pétrin, mais vous ne savez pas quel modèle choisir. L'IA compare les prix, marques, avis clients et vous recommande le meilleur rapport qualité/prix.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Comprendre votre caisse enregistreuse</h4>
+                                <p>Vous uploadez le manuel utilisateur (PDF), l'IA devient votre assistant pour éditer des factures, gérer les remises, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">EXEMPLE CONCRET</span>
+                            <div class="demo-scenario">
+                                <p><strong>Situation :</strong> Machine à café en panne, client qui attend...</p>
+                                <ol>
+                                    <li>📸 Photo du modèle</li>
+                                    <li>🤖 Upload dans l'IA</li>
+                                    <li>💬 "La machine affiche ERROR 03, que faire ?"</li>
+                                    <li>✅ Réponse en 10 secondes avec procédure</li>
+                                </ol>
+                                <p class="demo-caption">Temps gagné : 30 min de recherche Google + appel SAV</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU RECETTES -->
+            <div class="use-case-content" id="category-recettes">
+                <div class="use-case-split">
+                    <div class="use-case-left">
+                        <h3>👨‍🍳 Idées & Évolution de Recettes</h3>
+                        <p class="intro">Brainstorming, adaptation de recettes, alternatives ingrédients... L'IA comme sous-chef créatif.</p>
+
+                        <div class="use-case-list">
+                            <div class="use-case-item">
+                                <h4>Faire évoluer une recette existante</h4>
+                                <p><strong>Exemple :</strong> "J'ai une recette de brioche classique, je veux la décliner en version sans gluten mais conserver le moelleux. Comment faire ?"</p>
+                                <p><strong>L'IA propose :</strong> Alternatives de farines, ajustements d'hydratation, tests de fermentation.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Trouver des idées de nouveautés</h4>
+                                <p>Brainstorming pour créer des produits saisonniers, des déclinaisons de best-sellers, ou répondre à une demande client spécifique.</p>
+                            </div>
+
+                            <div class="use-case-item">
+                                <h4>Adapter une recette à vos contraintes</h4>
+                                <p>Calcul automatique pour changer les quantités, remplacer un ingrédient manquant, ajuster pour le matériel disponible.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-case-right">
+                        <div class="demo-box">
+                            <span class="demo-label">NOTE IMPORTANTE</span>
+                            <div class="disclaimer">
+                                <p>⚠️ <strong>L'IA ne remplace pas votre expertise boulangère.</strong></p>
+                                <p>Elle vous aide à gagner du temps sur la recherche et le brainstorming, mais c'est VOUS qui validez, testez et ajustez avec votre savoir-faire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Training Program -->
+    <section class="training-program">
+        <div class="container">
+            <h2>Programme de la formation : 1 journée pour maîtriser l'IA</h2>
+
+            <div class="training-intro">
+                <p class="tagline">Concrète et directement actionnable</p>
+            </div>
+
+            <!-- LES 4 PILIERS -->
+            <div class="training-pillars">
+                <div class="pillar">
+                    <h3>RESPONSABILITÉ</h3>
+                    <p>Comprendre le fonctionnement des IA pour limiter les fuites de données sensibles</p>
+                </div>
+
+                <div class="pillar">
+                    <h3>EFFICIENCE</h3>
+                    <p>Découvrir les outils d'IA adaptés à vos besoins</p>
+                </div>
+
+                <div class="pillar">
+                    <h3>QUALITÉ</h3>
+                    <p>Apprendre à prompter pour maximiser la performance de l'outil</p>
+                </div>
+
+                <div class="pillar">
+                    <h3>ACTIONNABILITÉ</h3>
+                    <p>Identifier en session les cas d'usage concrets pour votre métier</p>
+                </div>
+            </div>
+
+            <!-- FORMAT -->
+            <div class="training-format">
+                <h3>📍 Formation en présentiel sur 1 journée</h3>
+                <div class="format-details">
+                    <div class="format-item">
+                        ✅ Acculturation + prise en main immédiate des outils
+                    </div>
+                    <div class="format-item">
+                        ✅ Cas d'usage préparés sur mesure
+                    </div>
+                    <div class="format-item">
+                        ✅ 2 niveaux (débutant/avancé)
+                    </div>
+                    <div class="format-item">
+                        ✅ SAV WhatsApp 1 mois inclus
+                    </div>
+                </div>
+            </div>
+
+            <!-- CE QUE VOUS REPARTEZ AVEC -->
+            <div class="training-deliverables">
+                <h3>🎓 Vous repartez avec :</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        🚀 Liste d'outils IA par usage
+                    </div>
+                    <div class="deliverable-item">
+                        🚀 Guide complet des cas d'usage + prompts prêts à l'emploi
+                    </div>
+                    <div class="deliverable-item">
+                        🚀 Groupe WhatsApp avec support 1 mois
+                    </div>
+                    <div class="deliverable-item">
+                        🎁 Outil Allergènes sur-mesure (exclusif)
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÉDAGOGIE -->
+            <div class="training-pedagogy">
+                <h3>Notre méthode pédagogique</h3>
+                <div class="pedagogy-grid">
+                    <div class="pedagogy-item">
+                        <div class="icon">🎯</div>
+                        <h4>80% pratique, 20% théorie</h4>
+                        <p>Vous manipulez les outils en direct sur VOS cas réels</p>
+                    </div>
+                    <div class="pedagogy-item">
+                        <div class="icon">👥</div>
+                        <h4>Petits groupes (max 12 personnes)</h4>
+                        <p>Accompagnement personnalisé garanti</p>
+                    </div>
+                    <div class="pedagogy-item">
+                        <div class="icon">🔄</div>
+                        <h4>Suivi post-formation</h4>
+                        <p>Vous n'êtes pas seul après la formation : groupe WhatsApp + hotline 1 mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-cta">
+                <a href="#contact" class="cta-primary">
+                    Demander un devis formation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hogust -->
+    <section class="why-hogust">
+        <div class="container">
+            <h2>Pourquoi Hogust pour former vos clients boulangers ?</h2>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>🎯 Spécialistes du secteur boulangerie</h3>
+                    <p>Nous ne sommes pas des consultants IA généralistes. Benoît a créé et géré une boulangerie, Cécile a formé 500+ personnes à l'IA. Nous connaissons les vraies contraintes du métier.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>🤖 IA généraliste appliquée au métier</h3>
+                    <p>Nous n'inventons pas d'outils complexes. Nous formons à l'utilisation d'outils IA matures et accessibles appliqués aux spécificités des boulangers.</p>
+                    <p class="note">➜ <strong>Notre valeur ajoutée :</strong> les cas d'usage concrets, les prompts prêts à l'emploi, et l'accompagnement terrain.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>📊 Résultats mesurés</h3>
+                    <p>
+                        ✓ 87% des formés utilisent l'IA au quotidien 3 mois après<br>
+                        ✓ 3-5h/semaine gagnées en moyenne<br>
+                        ✓ Taux de satisfaction : 4,8/5
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <h3>🎓 Formations adaptables</h3>
+                    <p>
+                        • En marque blanche / co-brandées avec votre logo<br>
+                        • Webinaires de sensibilisation (1h) pour évangéliser<br>
+                        • Formations terrain (1 jour) pour l'opérationnel<br>
+                        • Suivi post-formation (groupe WhatsApp 1 mois)
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <h3>🚀 Mission : préserver l'artisanat</h3>
+                    <p>Notre objectif chez Hogust n'est pas de vendre de la formation pour vendre. C'est de faciliter la vie des boulangers pour qu'ils tiennent dans la durée, soient les meilleurs artisans possibles, et en vivent dignement.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>🤝 Partenariat gagnant-gagnant</h3>
+                    <p>Pour vous : un service innovant qui fidélise vos clients boulangers et vous différencie de la concurrence.<br>
+                    Pour eux : du temps gagné, moins de stress, plus de performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section class="proof">
+        <div class="container">
+            <h2>Formés par des experts boulangers</h2>
+            
+            <div class="rating">
+                <div class="stars">★★★★★</div>
+                <div class="rating-text">Formation de qualité reconnue</div>
+            </div>
+
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-image">
+                        [Photo Benoît]
+                    </div>
+                    <h3>Benoît Allard</h3>
+                    <div class="role">Co-fondateur & ancien gérant de boulangerie</div>
+                    <p>"J'ai créé et géré une boulangerie de A à Z. Je connais vos contraintes au quotidien et j'ai identifié précisément où l'IA peut vous faire gagner du temps."</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        [Photo Cécile]
+                    </div>
+                    <h3>Cécile de Larquier</h3>
+                    <div class="role">Experte IA & formatrice</div>
+                    <p>"Ex-consultante BearingPoint (stratégie & transformation digitale), coach certifiée ICF depuis 2025. Plus de 500 personnes formées à l'IA en 2 ans. Ma mission : rendre l'IA accessible à tous, même sans bagage technique."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships Section (for B2B) -->
+    <section class="partnerships" id="partenariat">
+        <div class="container">
+            <h2>Construisons ensemble votre offre IA pour vos clients boulangers</h2>
+
+            <div class="partnership-intro">
+                <p>Que vous soyez fournisseur de matières premières, fabricant de matériel, ou organisme de formation, nous co-construisons une solution adaptée à votre écosystème.</p>
+            </div>
+
+            <div class="partnership-options">
+                <div class="option-card">
+                    <h3>🎓 Formations en marque blanche</h3>
+                    <p>Nous formons vos clients boulangers sous votre marque. Vous gardez la relation client, nous assurons le contenu et l'animation.</p>
+                    <ul>
+                        <li>Supports personnalisés à vos couleurs</li>
+                        <li>Formateurs certifiés</li>
+                        <li>Suivi post-formation inclus</li>
+                    </ul>
+                </div>
+
+                <div class="option-card">
+                    <h3>📊 Webinaires de sensibilisation</h3>
+                    <p>Format court (1h) pour évangéliser vos clients sur l'IA avant de les former en profondeur.</p>
+                    <ul>
+                        <li>Animation interactive</li>
+                        <li>Démonstrations en direct</li>
+                        <li>Q&A personnalisée</li>
+                    </ul>
+                </div>
+
+                <div class="option-card">
+                    <h3>📈 Suivi & mesure d'impact</h3>
+                    <p>Mesure de l'adoption de l'IA chez vos clients formés.</p>
+                    <ul>
+                        <li>Enquêtes de satisfaction</li>
+                        <li>Taux d'utilisation à 1, 3, 6 mois</li>
+                        <li>ROI mesurable</li>
+                    </ul>
+                </div>
+
+                <div class="option-card highlight">
+                    <h3>🤝 Partenariat sur-mesure</h3>
+                    <p>Vous avez une idée spécifique ? Discutons-en ! Nous sommes flexibles et créons des formats adaptés à vos besoins.</p>
+                </div>
+            </div>
+
+            <div class="partnership-cta">
+                <h3>Parlons de votre projet</h3>
+                <p>Échangeons en visio (30 min) pour comprendre vos enjeux et vous présenter des cas concrets.</p>
+                <a href="#contact" class="cta-primary">
+                    Prendre rendez-vous
+                </a>
+                <p class="cta-reassurance">Échange sans engagement • Devis sous 48h</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Prêt à libérer du temps dans votre quotidien ?</h2>
+            <p class="contact-subtitle">Échangeons sur vos besoins et découvrons ensemble comment l'IA peut transformer votre boulangerie.</p>
+
+            <div class="contact-content">
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <div class="contact-label">Téléphone</div>
+                        <div class="contact-value">
+                            <a href="tel:+33652882438">06 52 88 24 38</a>
+                        </div>
+                        <div style="margin-top: 5px; color: #4A4A4A;">Benoît Allard</div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:contact@hogust.fr">contact@hogust.fr</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-reassurance">
+                    Échange sans engagement • Tarif sur mesure selon vos besoins
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">HOGUST</div>
+                
+                <div class="footer-links">
+                    <a href="#qui-sommes-nous">Qui sommes-nous</a>
+                    <a href="#nos-services">Nos services</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#mentions-legales">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 Hogust. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta-mobile">
+        <a href="#contact">Nous contacter</a>
+    </div>
+
+    <script>
+        // Toggle between Boulanger and Partenaire
+        function switchAudience(audience) {
+            // Update buttons
+            document.getElementById('btn-boulanger').classList.remove('active');
+            document.getElementById('btn-partenaire').classList.remove('active');
+            
+            if (audience === 'boulanger') {
+                document.getElementById('btn-boulanger').classList.add('active');
+                document.getElementById('content-boulanger').classList.add('active');
+                document.getElementById('content-partenaire').classList.remove('active');
+            } else {
+                document.getElementById('btn-partenaire').classList.add('active');
+                document.getElementById('content-partenaire').classList.add('active');
+                document.getElementById('content-boulanger').classList.remove('active');
+            }
+        }
+
+        // Show use case category
+        function showCategory(category) {
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.use-case-tabs button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active to clicked tab
+            event.target.classList.add('active');
+            
+            // Hide all content
+            const contents = document.querySelectorAll('.use-case-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Show selected content
+            document.getElementById('category-' + category).classList.add('active');
+        }
+    </script>
+</body>
+</html>
