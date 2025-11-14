@@ -25,52 +25,6 @@
             padding: 0 20px;
         }
 
-        /* Toggle Audience */
-        .toggle-audience {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 50px;
-            padding: 4px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .toggle-audience button {
-            flex: 1;
-            padding: 12px 30px;
-            border: none;
-            background: transparent;
-            color: #4A4A4A;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .toggle-audience button.active {
-            background: #3C39C4;
-            color: white;
-        }
-
-        .toggle-audience button:hover:not(.active) {
-            background: #F8F9FF;
-        }
-
-        /* Content Toggle */
-        .content-toggle {
-            display: none;
-        }
-
-        .content-toggle.active {
-            display: block;
-        }
-
         /* Header */
         header {
             background: white;
@@ -983,7 +937,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with Toggle -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
         <h1>La formation IA pensée pour les artisans boulangers<br>— fiable, terrain et prête à déployer</h1>
@@ -1668,23 +1622,7 @@
     </div>
 
     <script>
-        // Toggle between Boulanger and Partenaire
-        function switchAudience(audience) {
-            // Update buttons
-            document.getElementById('btn-boulanger').classList.remove('active');
-            document.getElementById('btn-partenaire').classList.remove('active');
-            
-            if (audience === 'boulanger') {
-                document.getElementById('btn-boulanger').classList.add('active');
-                document.getElementById('content-boulanger').classList.add('active');
-                document.getElementById('content-partenaire').classList.remove('active');
-            } else {
-                document.getElementById('btn-partenaire').classList.add('active');
-                document.getElementById('content-partenaire').classList.add('active');
-                document.getElementById('content-boulanger').classList.remove('active');
-            }
-        }
-
+        
         // Show use case category
         function showCategory(category) {
             // Remove active from all tabs
