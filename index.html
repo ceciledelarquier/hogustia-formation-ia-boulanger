@@ -273,6 +273,47 @@
             color: white;
         }
 
+        .chat-input-area {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+            background: white;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-send-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .chat-send-btn:hover {
+            background: var(--primary-dark);
+        }
+
         .typing-indicator {
             display: none;
             padding: 10px;
@@ -280,6 +321,7 @@
             border-radius: 12px;
             width: fit-content;
             margin-bottom: 15px;
+            margin-left: 10px;
         }
 
         .typing-indicator span {
@@ -2406,7 +2448,25 @@
                                     </tr>
                                 </table>
                                 <div style="margin-top: 15px; font-size: 0.75rem; color: #666; text-align: center;">
-                                    Document généré le 19/11/2025 - Conforme DGCCRF
+                                    <em>Généré automatiquement par l'IA Hogust</em>
+                                </div>
+
+                                <div style="margin-top: 20px; text-align: center;">
+                                    <a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes"
+                                        target="_blank" style="
+                                        display: inline-block;
+                                        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+                                        color: white;
+                                        padding: 10px 20px;
+                                        border-radius: 50px;
+                                        text-decoration: none;
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+                                        transition: transform 0.2s;
+                                    ">
+                                        🎁 Cadeau : Testez le générateur
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -2988,8 +3048,7 @@
             </div>
             <div class="chat-body" id="chat-body">
                 <div class="message bot">
-                    Bonjour ! 👋<br>Je suis l'IA de Hogust. Je peux répondre à vos questions ou vous aider à financer
-                    votre formation.
+                    Bonjour ! 👋<br>Je suis l'IA de Hogust. Posez-moi vos questions ou choisissez une option ci-dessous.
                 </div>
                 <div class="chat-options" id="chat-options">
                     <button class="chat-option-btn" onclick="handleOption('lieu')">📍 Où se passe la formation
@@ -3001,6 +3060,11 @@
                 <div class="typing-indicator" id="typing-indicator">
                     <span></span><span></span><span></span>
                 </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Posez votre question..."
+                    onkeypress="handleKeyPress(event)">
+                <button class="chat-send-btn" onclick="handleUserMessage()">➤</button>
             </div>
         </div>
         <button class="chat-toggle-btn" onclick="toggleChat()">
@@ -3067,16 +3131,97 @@
             }, 1000);
         }
 
+        // Knowledge Base
+        const knowledgeBase = {
+            keywords: {
+                'prix': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
+                'cout': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
+                'tarif': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
+                'finan': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
+                'lieu': 'La formation se déroule <strong>directement chez VOUS</strong>, dans votre fournil ! 🥖<br>On s\'adapte à votre matériel.',
+                'ou': 'La formation se déroule <strong>directement chez VOUS</strong>, dans votre fournil ! 🥖<br>On s\'adapte à votre matériel.',
+                'durée': 'C\'est une formation d\'une journée (7h), dense et efficace.',
+                'temps': 'C\'est une formation d\'une journée (7h), dense et efficace.',
+                'quand': 'C\'est une formation d\'une journée (7h), dense et efficace.',
+                'programme': 'On voit la gestion RH (fiches de poste), le marketing (photos, réseaux), les normes et l\'admin. Tout est pratique !',
+                'contenu': 'On voit la gestion RH (fiches de poste), le marketing (photos, réseaux), les normes et l\'admin. Tout est pratique !',
+                'contact': 'Vous pouvez contacter Cécile au <strong>06 52 88 24 38</strong> ou via le formulaire.',
+                'tel': 'Vous pouvez contacter Cécile au <strong>06 52 88 24 38</strong>.',
+                'mail': 'Vous pouvez nous écrire via le formulaire de contact.',
+                'humain': 'Pas de souci, je vous ouvre le formulaire de contact !',
+                'bonjour': 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?',
+                'salut': 'Salut ! Prêt à gagner du temps ?',
+                'merci': 'Avec plaisir ! N\'hésitez pas si vous avez d\'autres questions.',
+                'cadeau': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
+                'gpt': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
+                'allergene': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
+                'test': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>'
+            },
+            default: "Je ne suis pas sûr d'avoir la réponse. 🤔<br>Le mieux est de demander à Cécile ou Benoît directement via le bouton 'Parler à un humain'."
+        };
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                handleUserMessage();
+            }
+        }
+
+        function handleUserMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // Add user message
+            addMessage(text, 'user');
+            input.value = '';
+
+            // Analyze and respond
+            const response = findResponse(text);
+
+            // Show typing
+            const typing = document.getElementById('typing-indicator');
+            const chatBody = document.getElementById('chat-body');
+            typing.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(() => {
+                typing.style.display = 'none';
+                addMessage(response, 'bot');
+
+                // Special case for contact/human
+                if (text.toLowerCase().includes('humain') || text.toLowerCase().includes('contact')) {
+                    setTimeout(() => {
+                        toggleChat();
+                        document.querySelector('a[href=\"#contact\"]').click();
+                    }, 2000);
+                }
+            }, 800);
+        }
+
+        function findResponse(text) {
+            const lowerText = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
+
+            for (const [key, value] of Object.entries(knowledgeBase.keywords)) {
+                if (lowerText.includes(key)) {
+                    return value;
+                }
+            }
+            return knowledgeBase.default;
+        }
+
         function addMessage(text, sender) {
             const chatBody = document.getElementById('chat-body');
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender);
             messageDiv.innerHTML = text;
 
-            // Insert before options or typing
-            const options = document.getElementById('chat-options');
+            // Insert before typing indicator (which is always at the end now, but before input area in DOM structure, wait, typing is inside chat-body)
+            // Actually, typing indicator is the last element in chat-body. We should insert before it.
             const typing = document.getElementById('typing-indicator');
             chatBody.insertBefore(messageDiv, typing);
+
+            chatBody.scrollTop = chatBody.scrollHeight;
         }
     </script>
 </body>
