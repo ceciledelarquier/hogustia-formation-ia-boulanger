@@ -1397,15 +1397,10 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            background: #e0e0e0;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-style: italic;
+            object-fit: cover;
+            margin: 0 auto 20px;
             border: 4px solid white;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .founder-card h3 {
@@ -1904,8 +1899,8 @@
                 </h1>
 
                 <p class="hero-subtitle">
-                    Donnez aux artisans dirigeants boulangers un vrai levier de temps et de performance en apprenant
-                    l'IA appliquée à leurs tâches concrètes : administratif, marketing, RH, conformité...
+                    Enrichissez votre catalogue avec une formation IA terrain, co-construite pour les besoins réels de
+                    vos artisans boulangers.
                 </p>
 
                 <!-- Stats badges -->
@@ -1922,6 +1917,13 @@
                         <div class="stat-content">
                             <div class="stat-value">5/5</div>
                             <div class="stat-label">satisfaction<br>formation</div>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="icon">🤝</span>
+                        <div class="stat-content">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">recommandent<br>cette formation</div>
                         </div>
                     </div>
                 </div>
@@ -2023,11 +2025,9 @@
     <!-- Use Cases Section with Tabs -->
     <section class="use-cases-detailed">
         <div class="container">
-            <h2>8 domaines où l'IA fait gagner du temps au quotidien</h2>
-
-            <p class="section-intro">
-                Des cas d'usage concrets, testés sur le terrain avec des boulangers.
-                Chaque participant repart avec les prompts prêts à l'emploi.
+            <h2>Une formation co-construite pour vos artisans</h2>
+            <p class="section-subtitle">
+                Ne proposez pas une formation générique. Offrez une expertise métier qui parle le langage du fournil.
             </p>
 
             <!-- NAVIGATION PAR ONGLETS -->
@@ -2452,21 +2452,21 @@
                                 </div>
 
                                 <div style="margin-top: 20px; text-align: center;">
-                                    <a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes"
-                                        target="_blank" style="
+                                    <button onclick="openGptPopup()" style="
                                         display: inline-block;
                                         background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
                                         color: white;
                                         padding: 10px 20px;
                                         border-radius: 50px;
-                                        text-decoration: none;
+                                        border: none;
+                                        cursor: pointer;
                                         font-weight: 700;
                                         font-size: 0.9rem;
                                         box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
                                         transition: transform 0.2s;
                                     ">
                                         🎁 Cadeau : Testez le générateur
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -2700,8 +2700,8 @@
                 <div class="pedagogy-grid">
                     <div class="pedagogy-item">
                         <div class="icon">🎯</div>
-                        <h4>80% pratique, 20% théorie</h4>
-                        <p>Vous manipulez les outils en direct sur VOS cas réels</p>
+                        <h3>🤝 Co-construction</h3>
+                        <p>Nous adaptons le programme à vos enjeux pédagogiques et aux spécificités de votre public.</p>
                     </div>
                     <div class="pedagogy-item">
                         <div class="icon">👥</div>
@@ -2710,8 +2710,8 @@
                     </div>
                     <div class="pedagogy-item">
                         <div class="icon">🔄</div>
-                        <h4>Suivi post-formation</h4>
-                        <p>Vous n'êtes pas seul après la formation : groupe WhatsApp + hotline 1 mois</p>
+                        <h3>🎯 Expertise Terrain</h3>
+                        <p>Pas de théorie fumeuse. Que du concret, testé et approuvé par des boulangers en activité.</p>
                     </div>
                 </div>
             </div>
@@ -2963,6 +2963,35 @@
         </div>
     </div>
 
+    <!-- GPT Popup -->
+    <div id="gptPopup" class="modal">
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <button class="close-modal" onclick="closeGptPopup()">&times;</button>
+            <h3 style="color: #3C39C4; margin-bottom: 20px;">⚠️ Attention</h3>
+            <p style="margin-bottom: 25px; font-size: 1.1rem;">
+                Pour utiliser ce générateur, vous devez être <strong>connecté à votre compte ChatGPT</strong>.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank"
+                    onclick="closeGptPopup()"
+                    style="background: #10A37F; color: white; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                    ✅ OK pour moi (Ouvrir le lien)
+                </a>
+
+                <a href="https://chat.openai.com/auth/login" target="_blank"
+                    style="background: #333; color: white; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                    👤 Je n'ai pas de compte (S'inscrire)
+                </a>
+
+                <button onclick="copyGptLink()"
+                    style="background: #f3f4f6; color: #333; border: 1px solid #ddd; padding: 15px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    📋 Je copie le lien pour plus tard
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Show use case category
         function showCategory(category) {
@@ -2983,37 +3012,47 @@
 
         // Modal Logic
         const modal = document.getElementById('contactModal');
-        const closeBtn = document.querySelector('.close-modal');
-        const contactForm = document.getElementById('contactForm');
+        const gptPopup = document.getElementById('gptPopup');
 
-        // Open modal on "Nous contacter" clicks
-        document.querySelectorAll('a[href="#contact"]').forEach(link => {
-            link.addEventListener('click', function (e) {
+        // Open Contact Modal
+        document.querySelectorAll('a[href="#contact"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                modal.style.display = 'flex';
-                // Small delay for transition
-                setTimeout(() => {
-                    modal.classList.add('show');
-                }, 10);
+                modal.classList.add('show');
             });
         });
 
-        // Close modal
-        function closeModal() {
-            modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
+        // GPT Popup Logic
+        function openGptPopup() {
+            gptPopup.classList.add('show');
         }
 
-        closeBtn.addEventListener('click', closeModal);
+        function closeGptPopup() {
+            gptPopup.classList.remove('show');
+        }
 
-        // Close on outside click
-        window.addEventListener('click', function (e) {
-            if (e.target == modal) {
-                closeModal();
-            }
+        function copyGptLink() {
+            navigator.clipboard.writeText("https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes");
+            alert("Lien copié dans le presse-papier !");
+            closeGptPopup();
+        }
+
+        // Close Modals
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.remove('show');
+                gptPopup.classList.remove('show');
+            });
         });
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.classList.remove('show');
+            }
+            if (event.target == gptPopup) {
+                gptPopup.classList.remove('show');
+            }
+        }
 
         // Handle Form Submit
         contactForm.addEventListener('submit', function (e) {
@@ -3038,191 +3077,6 @@
             contactForm.reset();
             closeModal();
         });
-    </script>
-    <!-- CHATBOT WIDGET -->
-    <div id="chatbot-widget" class="chatbot-widget">
-        <div class="chat-window" id="chat-window">
-            <div class="chat-header">
-                <h3>🤖 Assistant Hogust</h3>
-                <button class="chat-close" onclick="toggleChat()">×</button>
-            </div>
-            <div class="chat-body" id="chat-body">
-                <div class="message bot">
-                    Bonjour ! 👋<br>Je suis l'IA de Hogust. Posez-moi vos questions ou choisissez une option ci-dessous.
-                </div>
-                <div class="chat-options" id="chat-options">
-                    <button class="chat-option-btn" onclick="handleOption('lieu')">📍 Où se passe la formation
-                        ?</button>
-                    <button class="chat-option-btn" onclick="handleOption('programme')">📚 Quel est le programme
-                        ?</button>
-                    <button class="chat-option-btn" onclick="handleOption('contact')">📞 Parler à un humain</button>
-                </div>
-                <div class="typing-indicator" id="typing-indicator">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Posez votre question..."
-                    onkeypress="handleKeyPress(event)">
-                <button class="chat-send-btn" onclick="handleUserMessage()">➤</button>
-            </div>
-        </div>
-        <button class="chat-toggle-btn" onclick="toggleChat()">
-            💬
-        </button>
-    </div>
-
-    <script>
-        // Chatbot Logic
-        function toggleChat() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.classList.toggle('open');
-        }
-
-        function handleOption(option) {
-            const chatBody = document.getElementById('chat-body');
-            const optionsContainer = document.getElementById('chat-options');
-
-            // Hide options temporarily
-            optionsContainer.style.display = 'none';
-
-            // Add User Message
-            let userText = "";
-            if (option === 'lieu') userText = "📍 Où se passe la formation ?";
-            if (option === 'programme') userText = "📚 Quel est le programme ?";
-            if (option === 'contact') userText = "📞 Parler à un humain";
-
-            addMessage(userText, 'user');
-
-            // Show typing indicator
-            const typing = document.getElementById('typing-indicator');
-            typing.style.display = 'block';
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            // Simulate delay
-            setTimeout(() => {
-                typing.style.display = 'none';
-
-                let botResponse = "";
-                let showOptions = true;
-
-                if (option === 'lieu') {
-                    botResponse = "La formation se déroule <strong>directement chez VOUS</strong>, dans votre fournil ! 🥖<br>On s'adapte à votre matériel et vos contraintes. Pas besoin de vous déplacer.";
-                } else if (option === 'programme') {
-                    botResponse = "En 1 jour, on couvre :<br>1️⃣ Gestion RH (Fiches de poste, plannings)<br>2️⃣ Marketing (Réseaux sociaux, photos)<br>3️⃣ Admin (Normes, courriers)<br>Tout est pratique et immédiat !";
-                } else if (option === 'contact') {
-                    botResponse = "Pas de souci, Cécile ou Benoît vont vous répondre personnellement. Je vous ouvre le formulaire !";
-                    showOptions = false;
-                    setTimeout(() => {
-                        toggleChat(); // Close chat
-                        document.querySelector('a[href=\"#contact\"]').click(); // Open modal
-                    }, 2000);
-                }
-
-                addMessage(botResponse, 'bot');
-
-                if (showOptions) {
-                    // Re-show options at the bottom
-                    chatBody.appendChild(optionsContainer);
-                    optionsContainer.style.display = 'flex';
-                }
-
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 1000);
-        }
-
-        // Knowledge Base
-        const knowledgeBase = {
-            keywords: {
-                'prix': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
-                'cout': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
-                'tarif': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
-                'finan': 'La formation est souvent prise en charge à 100% (FAFCEA/OPCO). Le reste à charge est généralement de <strong>0€</strong>.',
-                'lieu': 'La formation se déroule <strong>directement chez VOUS</strong>, dans votre fournil ! 🥖<br>On s\'adapte à votre matériel.',
-                'ou': 'La formation se déroule <strong>directement chez VOUS</strong>, dans votre fournil ! 🥖<br>On s\'adapte à votre matériel.',
-                'durée': 'C\'est une formation d\'une journée (7h), dense et efficace.',
-                'temps': 'C\'est une formation d\'une journée (7h), dense et efficace.',
-                'quand': 'C\'est une formation d\'une journée (7h), dense et efficace.',
-                'programme': 'On voit la gestion RH (fiches de poste), le marketing (photos, réseaux), les normes et l\'admin. Tout est pratique !',
-                'contenu': 'On voit la gestion RH (fiches de poste), le marketing (photos, réseaux), les normes et l\'admin. Tout est pratique !',
-                'contact': 'Vous pouvez contacter Cécile au <strong>06 52 88 24 38</strong> ou via le formulaire.',
-                'tel': 'Vous pouvez contacter Cécile au <strong>06 52 88 24 38</strong>.',
-                'mail': 'Vous pouvez nous écrire via le formulaire de contact.',
-                'humain': 'Pas de souci, je vous ouvre le formulaire de contact !',
-                'bonjour': 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?',
-                'salut': 'Salut ! Prêt à gagner du temps ?',
-                'merci': 'Avec plaisir ! N\'hésitez pas si vous avez d\'autres questions.',
-                'cadeau': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
-                'gpt': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
-                'allergene': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>',
-                'test': '🎁 <strong>Cadeau !</strong><br>Testez notre IA spécialisée pour générer vos fiches allergènes en 2 clics.<br><br><a href="https://chatgpt.com/g/g-68f65454fac88191a18100fdc1612e3c-hogust-allergenes" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">👉 Cliquer ici pour tester le GPT</a>'
-            },
-            default: "Je ne suis pas sûr d'avoir la réponse. 🤔<br>Le mieux est de demander à Cécile ou Benoît directement via le bouton 'Parler à un humain'."
-        };
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                handleUserMessage();
-            }
-        }
-
-        function handleUserMessage() {
-            const input = document.getElementById('chat-input');
-            const text = input.value.trim();
-
-            if (!text) return;
-
-            // Add user message
-            addMessage(text, 'user');
-            input.value = '';
-
-            // Analyze and respond
-            const response = findResponse(text);
-
-            // Show typing
-            const typing = document.getElementById('typing-indicator');
-            const chatBody = document.getElementById('chat-body');
-            typing.style.display = 'block';
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            setTimeout(() => {
-                typing.style.display = 'none';
-                addMessage(response, 'bot');
-
-                // Special case for contact/human
-                if (text.toLowerCase().includes('humain') || text.toLowerCase().includes('contact')) {
-                    setTimeout(() => {
-                        toggleChat();
-                        document.querySelector('a[href=\"#contact\"]').click();
-                    }, 2000);
-                }
-            }, 800);
-        }
-
-        function findResponse(text) {
-            const lowerText = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
-
-            for (const [key, value] of Object.entries(knowledgeBase.keywords)) {
-                if (lowerText.includes(key)) {
-                    return value;
-                }
-            }
-            return knowledgeBase.default;
-        }
-
-        function addMessage(text, sender) {
-            const chatBody = document.getElementById('chat-body');
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', sender);
-            messageDiv.innerHTML = text;
-
-            // Insert before typing indicator (which is always at the end now, but before input area in DOM structure, wait, typing is inside chat-body)
-            // Actually, typing indicator is the last element in chat-body. We should insert before it.
-            const typing = document.getElementById('typing-indicator');
-            chatBody.insertBefore(messageDiv, typing);
-
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
     </script>
 </body>
 
