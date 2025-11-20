@@ -13,6 +13,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hogust.fr/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -397,6 +398,15 @@
             font-size: 1.6rem;
             color: var(--primary);
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
         }
 
         .header-cta {
@@ -2023,6 +2033,10 @@
                 font-size: 1.3rem;
             }
 
+            .logo-img {
+                height: 40px;
+            }
+
             .header-cta {
                 padding: 10px 20px;
                 font-size: 0.85rem;
@@ -2344,7 +2358,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">HOGUST</div>
+                <div class="logo">
+                    <img src="logo.png" alt="Hogust Logo" class="logo-img">
+                    <span>HOGUST IA</span>
+                </div>
                 <a href="#contact" class="header-cta">Nous contacter</a>
             </div>
         </div>
