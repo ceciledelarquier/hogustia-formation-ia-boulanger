@@ -107,12 +107,21 @@
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: var(--text-main);
             background-color: var(--bg-warm);
             -webkit-font-smoothing: antialiased;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         h1,
@@ -1900,6 +1909,432 @@
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(60, 57, 196, 0.3);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE STYLES - COMPREHENSIVE
+           ============================================ */
+
+        /* Extra Small Devices (320px - 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+            }
+
+            .hero h1 .box-highlight {
+                padding: 0 8px;
+                font-size: 0.9em;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+
+            .stat-badge {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px !important;
+            }
+
+            .stat-badge .icon {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 2rem !important;
+            }
+
+            .stat-badge .stat-value {
+                font-size: 1.5rem !important;
+            }
+
+            .value-bullets {
+                padding: 25px 20px !important;
+            }
+
+            .bullet-icon {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.3rem !important;
+            }
+
+            .bullet-content strong {
+                font-size: 1rem !important;
+            }
+
+            .bullet-content p {
+                font-size: 0.95rem !important;
+            }
+
+            .cta-primary {
+                padding: 16px 35px !important;
+                font-size: 1rem !important;
+            }
+
+            .chat-window {
+                width: calc(100vw - 20px) !important;
+                max-width: 350px;
+                right: 10px !important;
+            }
+
+            .chatbot-widget {
+                bottom: 20px !important;
+                right: 15px !important;
+            }
+
+            .chat-toggle-btn {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 24px !important;
+            }
+        }
+
+        /* Small to Medium Devices (481px - 768px) */
+        @media (max-width: 768px) {
+
+            /* Container and layout fixes */
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Typography */
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            /* Header */
+            header {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .header-cta {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 50px 0 40px !important;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .stats-badges {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .stat-badge {
+                width: 100%;
+                max-width: 100%;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .stat-badge .icon {
+                width: 55px;
+                height: 55px;
+                font-size: 2.2rem;
+            }
+
+            .reassurance-box {
+                padding: 20px 30px;
+                margin: 0 auto 40px;
+            }
+
+            .reassurance-box p {
+                font-size: 1rem;
+            }
+
+            /* Value bullets */
+            .value-bullets {
+                padding: 35px 25px;
+                margin: 0 auto 40px;
+            }
+
+            .bullet-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .bullet-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Proof box */
+            .proof-box {
+                padding: 25px 20px;
+                margin: 0 auto 40px;
+            }
+
+            .proof-box p {
+                font-size: 1rem;
+            }
+
+            /* Hero image */
+            .hero-image {
+                height: 250px;
+                margin: 30px auto;
+            }
+
+            /* CTA */
+            .cta-primary {
+                padding: 18px 40px;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Sections */
+            section {
+                padding: 60px 0 !important;
+            }
+
+            section h2 {
+                font-size: 1.9rem;
+                margin-bottom: 40px;
+            }
+
+            /* Reality/Why IA Section */
+            .why-ia-bakery {
+                padding: 60px 0;
+            }
+
+            .reality-grid {
+                grid-template-columns: 1fr !important;
+                gap: 25px;
+            }
+
+            .reality-item {
+                padding: 30px 25px;
+            }
+
+            .reality-item h3 {
+                min-height: auto !important;
+                font-size: 1.3rem;
+            }
+
+            .reality-item p {
+                font-size: 1rem;
+            }
+
+            /* Solution intro */
+            .solution-intro {
+                padding: 35px 25px;
+            }
+
+            .solution-intro h3 {
+                font-size: 1.5rem;
+                flex-direction: column;
+            }
+
+            .solution-intro p {
+                font-size: 1rem;
+            }
+
+            /* Use case tabs */
+            .use-case-tabs {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+                padding-bottom: 10px;
+                justify-content: flex-start;
+                scrollbar-width: none;
+            }
+
+            .use-case-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .use-case-tabs button {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .use-case-split {
+                grid-template-columns: 1fr !important;
+                gap: 30px;
+            }
+
+            .before-after-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .artifact-card {
+                margin-top: 20px;
+            }
+
+            .demo-box {
+                position: relative;
+                top: 0;
+            }
+
+            /* Founders grid */
+            .founders-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px;
+            }
+
+            /* Modal adjustments */
+            .modal-content {
+                padding: 30px 20px !important;
+                width: 95%;
+                margin: 10px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .modal-intro {
+                font-size: 0.95rem;
+            }
+
+            /* Form */
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.95rem;
+            }
+
+            /* Chatbot mobile optimization */
+            .chatbot-widget {
+                bottom: 25px;
+                right: 20px;
+            }
+
+            .chat-toggle-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+            }
+
+            .chat-window {
+                width: calc(100vw - 30px);
+                max-width: 350px;
+                right: 0;
+            }
+
+            .chat-header {
+                padding: 15px;
+            }
+
+            .chat-header h3 {
+                font-size: 1rem;
+            }
+
+            .chat-body {
+                max-height: 300px;
+                padding: 15px;
+            }
+
+            .message {
+                font-size: 0.9rem;
+            }
+
+            .chat-option-btn {
+                font-size: 0.85rem;
+                padding: 10px 14px;
+            }
+
+            /* Sticky CTA for mobile */
+            .sticky-cta-mobile {
+                display: block;
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+
+            .sticky-cta-mobile a {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Medium Devices (769px - 1024px) - Tablets */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .container {
+                max-width: 95%;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .reality-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .reality-item {
+                padding: 30px 25px;
+            }
+
+            .founders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Landscape phones */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .hero {
+                padding: 30px 0 !important;
+            }
+
+            .modal-content {
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .chat-window {
+                max-height: 70vh;
+            }
+        }
+
+        /* Prevent horizontal scroll */
+        @media (max-width: 768px) {
+
+            *,
+            *::before,
+            *::after {
+                max-width: 100%;
+            }
+
+            img,
+            video,
+            iframe {
+                max-width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
