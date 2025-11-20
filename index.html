@@ -1654,27 +1654,15 @@
 
             .stats-badges {
                 flex-direction: row;
-                gap: 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
             }
 
             .stat-badge {
-                min-width: auto;
-                flex: 1;
-                max-width: 160px;
-                padding: 20px 15px;
-                min-height: 140px;
-            }
-
-            .stat-badge .icon {
-                font-size: 2rem;
-            }
-
-            .stat-badge .stat-value {
-                font-size: 1.4rem;
-            }
-
-            .stat-badge .stat-label {
-                font-size: 0.8rem;
+                min-width: 140px;
+                flex: 1 1 40%;
+                padding: 15px 10px;
             }
 
             .reality-grid {
@@ -1686,29 +1674,57 @@
             }
 
             .solution-intro {
-                padding: 30px 25px;
+                padding: 30px 20px;
             }
 
             .solution-intro h3 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 flex-direction: column;
                 gap: 10px;
             }
 
-            .solution-intro h3::before {
+            section h2 {
                 font-size: 1.8rem;
             }
 
-            .solution-intro p {
-                font-size: 1rem;
+            /* Mobile Tabs - Horizontal Scroll */
+            .use-case-tabs {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+                padding-bottom: 10px;
+                justify-content: flex-start;
+                scrollbar-width: none;
+                /* Firefox */
             }
 
-            section h2 {
-                font-size: 2rem;
+            .use-case-tabs::-webkit-scrollbar {
+                display: none;
+                /* Chrome/Safari */
             }
 
+            .use-case-tabs button {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Stacked Layout for Use Cases */
             .use-case-split {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .before-after-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .artifact-card {
+                margin-top: 20px;
             }
 
             .demo-box {
@@ -1721,8 +1737,19 @@
             }
 
             .header-cta {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                display: none;
+                /* Hide header CTA on mobile to save space */
+            }
+
+            /* Adjust Modal for Mobile */
+            .modal-content {
+                padding: 25px;
+                width: 95%;
+                margin: 10px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.5rem;
             }
 
             section {
@@ -1730,7 +1757,7 @@
             }
 
             .hero {
-                padding: 50px 0;
+                padding: 40px 0;
             }
         }
 
